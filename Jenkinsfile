@@ -10,13 +10,6 @@ pipeline{
                }
             }
         }
-        stage("Trivy File System Scan"){
-            steps{
-                script{
-                    trivy_fs()
-                }
-            }
-        }
         stage("Build"){
             steps{
                 sh "docker build -t two-tier-flask-app ."

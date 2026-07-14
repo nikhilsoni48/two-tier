@@ -1,7 +1,7 @@
 @Library("Shared") _
 pipeline{
     
-    agent { label "dev"};
+    agent { label "Agent"};
     
     stages{
         stage("Code Clone"){

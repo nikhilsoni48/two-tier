@@ -10,18 +10,20 @@ pipeline{
                }
             }
         }
+    }
 
        stages {
-    stage('Debug') {
-        steps {
-            sh '''
-                whoami
-                id
-                groups
-                docker ps
-            '''
-        }
-    }
+            stage('Debug') {
+                steps {
+                    sh '''
+                    whoami
+                    id
+                    groups
+                    docker ps
+                    '''
+                }
+            }
+       }
 
         
         stage("Build"){

@@ -16,6 +16,18 @@ pipeline{
             }
             
         }
+
+        stage('Debug') {
+            steps {
+                    sh '''
+                    whoami
+                    id
+                    groups
+                    docker ps
+                    '''
+                    }
+                }
+        
         stage("Test"){
             steps{
                 echo "Developer / Tester tests likh ke dega..."

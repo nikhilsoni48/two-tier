@@ -25,7 +25,7 @@ pipeline{
         stage("push to docekr hub"){
             steps{
                 withCredentials([usernamePassword(
-                    credentialsId: 'jenkins-master',
+                    credentialsId: 'dev-agent-key',
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASS'
                 )]){

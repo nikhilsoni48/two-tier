@@ -10,6 +10,7 @@ pipeline{
                     url: 'https://github.com/nikhilsoni48/two-tier.git'
             }
         }
+    }
 
         stage("build"){
             steps{
@@ -38,7 +39,8 @@ pipeline{
         }
 
         stage("deploy"){
-            docker compose up -d --build flask-app -d
+            step{
+                docker compose up -d --build flask-app -d
         }
     }
 }

@@ -30,7 +30,7 @@ pipeline{
                     passwordVariable: 'DOCKER_PASS'
                 )]){
                     sh '''
-                    docker login -u $DOCKER_USER -p $DOCKER_PASS
+                    docker login -u ${env.DOCKER_USER} -p ${env.DOCKER_PASS}
                     docker tag two-tier-flask-app:latest nikhilsoni48/two-tier-flask-app:latest
                     docker push nikhilsoni48/two-tier-flask-app:latest
                     '''

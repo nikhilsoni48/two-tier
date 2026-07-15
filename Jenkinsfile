@@ -29,11 +29,10 @@ pipeline{
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASS'
                 )]){
-                    sh '''
-                    docker login -u ${env.DOCKER_USER} -p ${env.DOCKER_PASS}
-                    docker tag two-tier-flask-app:latest nikhilsoni48/two-tier-flask-app:latest
-                    docker push nikhilsoni48/two-tier-flask-app:latest
-                    '''
+                    
+                    sh "docker login -u ${env.DOCKER_USER} -p ${env.DOCKER_PASS}"
+                    sh "docker tag two-tier-flask-app:latest nikhilsoni48/two-tier-flask-app:latest"
+                    sh "docker push nikhilsoni48/two-tier-flask-app:latest"
                 }
             }
         }

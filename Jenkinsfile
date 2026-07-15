@@ -29,16 +29,20 @@ pipeline{
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASS'
                 )]){
+                    sh '''
                     docker login -u $DOCKER_USER -p $DOCKER_PASS
                     docker tag two-tier-flask-app:latest nikhilsoni48/two-tier-flask-app:latest
                     docker push nikhilsoni48/two-tier-flask-app:latest
+                    '''
                 }
             }
         }
 
         stage("deploy"){
-            step{
-                docker compose up -d --build flask-app -d
+            steps{
+                sh'''
+                docker compose up -d --build flask-app
+                '''
             }
         }
     }
